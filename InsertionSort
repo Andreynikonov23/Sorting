@@ -1,0 +1,25 @@
+package nick.pack;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        /*
+        Каждый проход выбирать самый минимальный элемент и смещать его в начало.
+        При этом каждый новый проход начинать сдвигаясь вправо,
+        то есть первый проход — с первого элемента, второй проход — со второго.
+         */
+        int[] array = {23,64,12,433,21,59,1,54,7,3};
+        for (int i = 0; i < array.length; i++) {
+            int value = array[i];
+            int j = i -1;
+            for (;j>=0;j--){
+                if (value < array[j]){
+                    array[j+1] = array[j];
+                } else break;
+            }
+            array[j + 1] = value;
+        }
+        System.out.println(Arrays.toString(array));
+    }
+}
